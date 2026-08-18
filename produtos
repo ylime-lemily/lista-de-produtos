@@ -1,9 +1,24 @@
 produtos = []
+categoria = []
+
+combinados = list(zip(produtos, categoria))
+print(combinados)
+
 while True:
+    print("Seja Bem vindo ao Supermercado!")
+    print("*************************************\n")
+    print("O que deseja fazer hoje? ")
+    print("1 - inserir produtos ")
+    print("2 - alterar produtos ")
+    print("3 - revover produtos")
+    print("4 - terminei.")
+
     comando = input("Digite o nome do produto: ")
     if comando == '1' : #Adicionar
         produto_novo = input("Digite o nome do novo produto: ")
-        produtos.append(produto_novo)
+        categoria_produto = input("Digite a categoria do produto: ")
+        produto = [produto_novo, categoria_produto]
+        produtos.append(produto)
 
     if comando == '2' : #Alterar
         produto_antigo = input("Digite o nome do produto que você deseja alterar: ")
