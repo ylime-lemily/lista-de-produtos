@@ -1,0 +1,54 @@
+produtos = []
+categorias = []
+
+while True:
+    print("\nSeja Bem-vindo ao Supermercado!")
+    print("*************************************")
+    print("O que deseja fazer hoje?")
+    print("1 - Inserir produtos")
+    print("2 - Alterar produtos")
+    print("3 - Remover produtos")
+    print("4 - Terminei.")
+
+    # Usamos int() para transformar a resposta em número inteiro
+    comando = int(input("Digite o número da opção desejada: "))
+
+    if comando == 1:  # Adicionar
+        produto_novo = input("Digite o nome do novo produto: ")
+        categoria_produto = input("Digite a categoria do produto: ")
+        # Salvamos como uma lista interna [produto, categoria]
+        produtos.append(produto_novo)
+        categorias.append(categoria_produto)
+        print("Produto adicionado com sucesso!")
+
+    elif comando == 2:  # Alterar
+        produto_antigo = input("Digite o nome do produto que você deseja alterar: ")
+        if produto_antigo in produtos:
+            indice = produtos.index(produto_antigo)
+            produto_novo = input("Digite o nome do novo produto: ")
+            categoria_nova = input("Digite a nova categoria do produto: ")
+
+            produtos[indice] = produto_novo
+            categorias[indice] = categoria_nova
+            print(f"Lista atualizada - Produtos: {produtos}")
+        else:
+            print("O item informado não está na lista.")
+
+    elif comando == 3:  # Remover
+        produto_remover = input("Digite o nome do produto que deseja remover: ")
+        if produto_remover in produtos:
+            indice = produtos.index(produto_remover)
+            produtos.pop(indice)
+            categorias.pop(indice)
+            print("Produto removido com sucesso!")
+        else:
+            print("O item não foi encontrado na lista.")
+
+    elif comando == 4:  # Sair
+        print("\nLista final de produtos e categorias:")
+        # Mostra os produtos unidos com suas categorias
+        combinados = list(zip(produtos, categorias))
+        print(combinados)
+        break
+    else:
+        print("Opção inválida! Escolha um número de 1 a 4.")
